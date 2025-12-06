@@ -1,16 +1,12 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Provider } from '@/components/ui/provider'
+import localFont from 'next/font/local'
+import NavBar from '@/components/navbar/nav-bar'
+import Noise from '@/components/noise/noise'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+const ClashDisplay = localFont({
+  src: '/fonts/ClashDisplay-Variable.ttf',
 })
 
 export const metadata: Metadata = {
@@ -24,9 +20,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='es' suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Provider>{children}</Provider>
+    <html lang='es'>
+      <body className={ClashDisplay.className}>
+        <Noise />
+        <Provider>
+          <NavBar />
+          {children}
+        </Provider>
       </body>
     </html>
   )

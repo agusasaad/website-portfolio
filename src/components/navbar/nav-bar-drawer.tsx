@@ -5,7 +5,6 @@ import NavBarDrawerHeader from './nav-bar-drawer-header'
 import NavBarDrawerItems from './nav-bar-drawer-items'
 import NavBarDrawerFooter from './nav-bar-drawer-footer'
 import Noise from '../noise/noise'
-import { CgMenuGridO } from 'react-icons/cg'
 
 const NavBarDrawer = () => {
   const { open, onOpen, onClose, setOpen } = useDisclosure()
@@ -15,22 +14,38 @@ const NavBarDrawer = () => {
       size='full'
       placement='bottom'
       open={open}
-      onOpenChange={(details) => setOpen(details.open)} // sincroniza cambios externos
+      onOpenChange={(details) => setOpen(details.open)}
     >
       {/* -------------------------------------- */}
       {/*            TRIGGER DEL DRAWER           */}
       {/* -------------------------------------- */}
       <Drawer.Trigger asChild>
         <Box
+          w={'45px'}
+          h={'45px'}
           as='button'
           aria-label='menu'
           cursor='pointer'
           outline='none'
+          display={'flex'}
+          justifyContent={'center'}
+          alignItems={'center'}
           onClick={onOpen}
           transition='transform 0.3s ease'
           _hover={{ transform: 'rotate(45deg)' }}
         >
-          <CgMenuGridO size={35} />
+          <svg
+            width='25'
+            height='25'
+            viewBox='0 0 25 25'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <circle cx='2.77778' cy='2.77778' r='2.77778' fill='white' />
+            <circle cx='2.77778' cy='22.2222' r='2.77778' fill='white' />
+            <circle cx='22.2222' cy='2.77778' r='2.77778' fill='white' />
+            <circle cx='22.2222' cy='22.2222' r='2.77778' fill='white' />
+          </svg>
         </Box>
       </Drawer.Trigger>
 
@@ -45,6 +60,7 @@ const NavBarDrawer = () => {
           <Drawer.Content
             position='relative'
             padding={{ base: '0px 24px', md: '0px 40px' }}
+            bg={'var(--background)'}
           >
             {/* ---------------- HEADER ---------------- */}
             {/* X de cerrar + info de cabecera */}

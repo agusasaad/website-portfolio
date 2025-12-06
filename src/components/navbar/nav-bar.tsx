@@ -1,9 +1,15 @@
-import { Box, Button, Image, Text } from '@chakra-ui/react'
+'use client'
+import { Box, Image, Text } from '@chakra-ui/react'
 import image_profile_white from '@/assets/image-profile-white.webp'
 import NavBarDrawer from './nav-bar-drawer'
 import { MotionFadeDown } from '../reusable/motion-fade-down'
+import { CustomButton } from '../reusable/custom-button'
+import { headingTextStyles } from '@/styles/comon-style'
+import { useColorMode } from '../ui/color-mode'
+import { TbMoonFilled, TbSunFilled } from 'react-icons/tb'
 
 const NavBar = () => {
+  const { colorMode, toggleColorMode } = useColorMode()
   return (
     <Box
       as='nav'
@@ -12,6 +18,8 @@ const NavBar = () => {
       display='flex'
       alignItems='center'
       justifyContent='space-between'
+      gap={'20px'}
+      borderBottom={'1px solid rgb(48, 48, 48)'}
     >
       {/* ------------------ LEFT SECTION: LOGO + NAME ------------------ */}
       <MotionFadeDown>
@@ -19,25 +27,19 @@ const NavBar = () => {
           display='flex'
           alignItems='center'
           justifyContent='center'
-          gap='10px'
+          gap='15px'
         >
           {/* Profile Image */}
           <Image
             src={image_profile_white.src}
             alt='image_profile_white'
-            w={{ base: '45px', md: '35px' }}
-            h={{ base: '45px', md: '35px' }}
+            w={'40px'}
+            h={'40px'}
             objectFit='contain'
           />
 
           {/* Name */}
-          <Text
-            as='span'
-            fontSize='20px'
-            fontWeight={600}
-            color='#ffffff'
-            hideBelow={'md'}
-          >
+          <Text {...headingTextStyles} as='span' hideBelow={'md'}>
             AGUSTIN ASAAD
           </Text>
         </Box>
@@ -54,20 +56,18 @@ const NavBar = () => {
           minW={{ base: 'auto', md: '210px' }}
           display={'flex'}
           justifyContent={'flex-end'}
+          alignItems={'center'}
+          gap={'20px'}
         >
-          <Button
-            size={{ base: 'sm', md: 'xl' }}
-            minH={'50px'}
-            p='0px 24px'
-            rounded='full'
-            fontSize='16px'
-            fontWeight={600}
-            bg='transparent'
-            border='1.5px solid #FFFFFF'
-            color='#FFFFFF'
-          >
-            CONTACTAME
-          </Button>
+          <CustomButton label='CONTACTAME' />
+
+          <Box as='button' onClick={toggleColorMode}>
+            {colorMode === 'light' ? (
+              <TbSunFilled size={35} color='white' />
+            ) : (
+              <TbMoonFilled size={35} color='white' />
+            )}
+          </Box>
         </Box>
       </MotionFadeDown>
     </Box>

@@ -4,6 +4,8 @@ import { Provider } from '@/components/ui/provider'
 import localFont from 'next/font/local'
 import NavBar from '@/components/navbar/nav-bar'
 import Noise from '@/components/noise/noise'
+import { ReactLenis } from '@/utils/lenis'
+import { ColorModeProvider } from '@/components/ui/color-mode'
 
 const ClashDisplay = localFont({
   src: '/fonts/ClashDisplay-Variable.ttf',
@@ -22,11 +24,15 @@ export default function RootLayout({
   return (
     <html lang='es'>
       <body className={ClashDisplay.className}>
-        <Noise />
-        <Provider>
-          <NavBar />
-          {children}
-        </Provider>
+        <ReactLenis root>
+          <Noise />
+          <Provider>
+            <ColorModeProvider>
+              <NavBar />
+              {children}
+            </ColorModeProvider>
+          </Provider>
+        </ReactLenis>
       </body>
     </html>
   )

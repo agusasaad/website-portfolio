@@ -13,12 +13,12 @@ interface SlideUpItemProps {
 export const SlideUpItem = ({
   children,
   delay = 0,
-  duration = 0.8,
+  duration = 0.9,
 }: SlideUpItemProps) => {
   return (
     <Box overflow={'hidden'}>
       <motion.div
-        initial={{ y: 90, opacity: 0 }}
+        initial={{ y: 130, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
           delay,

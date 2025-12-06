@@ -2,6 +2,8 @@ import { Box, Button, Image, Text } from '@chakra-ui/react'
 import image_profile_white from '@/assets/image-profile-white.webp'
 import { MotionFadeDown } from '../reusable/motion-fade-down'
 import { CgClose } from 'react-icons/cg'
+import { CustomButton } from '../reusable/custom-button'
+import { headingTextStyles } from '@/styles/comon-style'
 
 const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
   return (
@@ -31,7 +33,7 @@ const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
           />
 
           {/* Name */}
-          <Text as='span' fontSize='20px' fontWeight={600} color='#ffffff'>
+          <Text as='span' {...headingTextStyles}>
             AGUSTIN ASAAD
           </Text>
         </Box>
@@ -62,19 +64,7 @@ const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
       {/* ------------------ RIGHT BUTTON: CONTACT ------------------ */}
       <MotionFadeDown delay={0.5} hideBelow={'md'}>
         <Box minW={'210px'} display={'flex'} justifyContent={'flex-end'}>
-          <Button
-            minH='50px'
-            p='0px 24px'
-            rounded='full'
-            fontSize='16px'
-            fontWeight={600}
-            bg='transparent'
-            border='1.5px solid #FFFFFF'
-            color='#FFFFFF'
-            outline={'none'}
-          >
-            CONTACTAME
-          </Button>
+          <CustomButton label='CONTACTAME' />
         </Box>
       </MotionFadeDown>
     </Box>

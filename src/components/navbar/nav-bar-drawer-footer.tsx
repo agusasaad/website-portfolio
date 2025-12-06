@@ -2,6 +2,7 @@ import { Box, Link, Text } from '@chakra-ui/react'
 import { LuArrowUpRight } from 'react-icons/lu'
 import { MotionFadeDown } from '../reusable/motion-fade-down'
 import { TiLocation } from 'react-icons/ti'
+import { headingTextStyles } from '@/styles/comon-style'
 
 const NavBarDrawerFooter = () => {
   return (
@@ -16,10 +17,8 @@ const NavBarDrawerFooter = () => {
     >
       <MotionFadeDown delay={0.8} y={40} hideBelow={'md'}>
         <Text
+          {...headingTextStyles}
           as='span'
-          fontSize='20px'
-          fontWeight={600}
-          color='#ffffff'
           display={'flex'}
           flexDir={{ base: 'row-reverse', sm: 'row' }}
           alignItems={'center'}
@@ -37,13 +36,13 @@ const NavBarDrawerFooter = () => {
         flexDir={{ base: 'column', sm: 'row' }}
       >
         <MotionFadeDown delay={0.8} y={40}>
-          <Link fontSize='20px' fontWeight={600} color='#ffffff'>
+          <Link {...headingTextStyles}>
             LINKEDIN
             <LuArrowUpRight size={20} />
           </Link>
         </MotionFadeDown>
         <MotionFadeDown delay={0.8} y={40}>
-          <Link fontSize='20px' fontWeight={600} color='#ffffff'>
+          <Link {...headingTextStyles}>
             GITHUB
             <LuArrowUpRight size={20} />
           </Link>

@@ -55,7 +55,7 @@ const HomePage = () => {
           </Text>
         </SlideUpItem>
         <SlideUpItem delay={0.2}>
-          <Text {...paragraphTextStyles} as={'p'} maxW={'600px'}>
+          <Text {...paragraphTextStyles} as={'p'} maxW={'601px'}>
             Desarrollador Web de Córdoba, Argentina. Me especializo en
             desarrollo Front-end, con experiencia en la creación de interfaces
             de usuario eficientes y visualmente atractivas.

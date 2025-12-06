@@ -16,7 +16,7 @@ const HomePage = () => {
         display={'flex'}
         flexDir={'column'}
         alignItems={'flex-start'}
-        gap={{ base: '20px', md: '0px' }}
+        gap={{ base: '5px', md: '0px' }}
       >
         <SlideUpItem delay={0.2}>
           <Text

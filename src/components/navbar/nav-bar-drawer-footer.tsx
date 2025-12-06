@@ -7,14 +7,14 @@ const NavBarDrawerFooter = () => {
   return (
     <Box
       w={'100%'}
-      p='30px 0'
+      minHeight={'110px'}
       display={'flex'}
       flexDir={{ base: 'column', sm: 'row' }}
       justifyContent={'space-between'}
       alignItems={'center'}
       gap={'15px'}
     >
-      <MotionFadeDown delay={0.8} y={40}>
+      <MotionFadeDown delay={0.8} y={40} hideBelow={'md'}>
         <Text
           as='span'
           fontSize='20px'
@@ -33,7 +33,7 @@ const NavBarDrawerFooter = () => {
       <Box
         display={'flex'}
         alignItems={'center'}
-        gap={{ base: '15px', sm: '30px' }}
+        gap={{ base: '10px', sm: '30px' }}
         flexDir={{ base: 'column', sm: 'row' }}
       >
         <MotionFadeDown delay={0.8} y={40}>

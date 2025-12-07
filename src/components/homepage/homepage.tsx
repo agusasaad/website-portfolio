@@ -16,13 +16,13 @@ const HomePage = () => {
         display={'flex'}
         flexDir={'column'}
         alignItems={'flex-start'}
-        gap={{ base: '5px', md: '0px' }}
+        gap={{ base: '8px', md: '0px' }}
       >
         <SlideUpItem delay={1.1}>
           <Text
             as={'h1'}
             fontStyle={'normal'}
-            fontSize={{ base: '75px', md: '100px', lg: '200px' }}
+            fontSize={{ base: '50px', md: '100px', lg: '200px' }}
             fontWeight={600}
             textTransform={'uppercase'}
             lineHeight={'80%'}
@@ -36,7 +36,7 @@ const HomePage = () => {
           <Text
             as={'h2'}
             fontStyle={'normal'}
-            fontSize={{ base: '75px', md: '100px', lg: '200px' }}
+            fontSize={{ base: '50px', md: '100px', lg: '200px' }}
             fontWeight={600}
             textTransform={'uppercase'}
             lineHeight={'80%'}

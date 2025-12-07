@@ -20,6 +20,7 @@ export default function PageReveal() {
         overflow: 'hidden',
         zIndex: 9999,
         display: 'flex',
+        maxHeight: '100dvh',
       }}
     >
       {panels.map((_, i) => (

@@ -48,19 +48,29 @@ const HomePage = () => {
         </SlideUpItem>
       </Box>
 
-      <Box display={'flex'} flexDir={'column'} gap={'10px'}>
-        <SlideUpItem delay={1.1}>
-          <Text {...headingTextStyles} as={'h2'}>
-            DESARROLLADOR FRONT-END
-          </Text>
-        </SlideUpItem>
-        <SlideUpItem delay={1.1}>
-          <Text {...paragraphTextStyles} as={'p'} maxW={'601px'}>
-            Desarrollador Web de Córdoba, Argentina. Me especializo en
-            desarrollo Front-end, con experiencia en la creación de interfaces
-            de usuario eficientes y visualmente atractivas.
-          </Text>
-        </SlideUpItem>
+      <Box display={'flex'} justifyContent={'flex-end'}>
+        <Box maxW={'700px'} display={'flex'} flexDir={'column'} gap={'10px'}>
+          <SlideUpItem delay={1.1}>
+            <Text
+              {...headingTextStyles}
+              as={'h2'}
+              fontSize={{ base: '20px', md: '24px' }}
+            >
+              DESARROLLADOR FRONT-END
+            </Text>
+          </SlideUpItem>
+          <SlideUpItem delay={1.2}>
+            <Text
+              {...paragraphTextStyles}
+              as={'p'}
+              fontSize={{ base: '18px', md: '20px' }}
+            >
+              Desarrollador Web de Córdoba, Argentina. Me especializo en
+              desarrollo Front-end, con experiencia en la creación de interfaces
+              de usuario eficientes y visualmente atractivas.
+            </Text>
+          </SlideUpItem>
+        </Box>
       </Box>
     </Box>
   )

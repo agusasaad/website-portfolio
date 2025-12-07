@@ -1,11 +1,16 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 const panels = Array.from({ length: 5 })
 const WAIT_TIME = 0.01
 
 export default function PageReveal() {
+  const [visible, setVisible] = useState(true)
+
+  if (!visible) return null
+
   return (
     <div
       style={{
@@ -26,6 +31,14 @@ export default function PageReveal() {
             duration: 1.1,
             ease: [0.85, 0, 0.15, 1],
             delay: WAIT_TIME + i * 0.1,
+          }}
+          onAnimationComplete={() => {
+            // Cuando termina la ÚLTIMA barra, ocultamos todo
+            if (i === panels.length - 1) {
+              setTimeout(() => {
+                setVisible(false)
+              }, 50) // pequeño delay para evitar flicker
+            }
           }}
           style={{
             flex: 1,

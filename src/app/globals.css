@@ -26,6 +26,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer !important;
+}
+
 @media (max-width: 768px) {
   body {
     padding: 0px 24px;

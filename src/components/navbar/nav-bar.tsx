@@ -4,7 +4,7 @@ import image_profile_white from '@/assets/image-profile-white.webp'
 import NavBarDrawer from './nav-bar-drawer'
 import { MotionFadeDown } from '../reusable/motion-fade-down'
 import { CustomButton } from '../reusable/custom-button'
-import { headingTextStyles } from '@/styles/comon-style'
+import { headingTextStyles, paragraphTextStyles } from '@/styles/comon-style'
 import { useColorMode } from '../ui/color-mode'
 import { TbMoonFilled, TbSunFilled } from 'react-icons/tb'
 
@@ -22,7 +22,7 @@ const NavBar = () => {
       borderBottom={'1px solid rgb(48, 48, 48)'}
     >
       {/* ------------------ LEFT SECTION: LOGO + NAME ------------------ */}
-      <MotionFadeDown>
+      <MotionFadeDown delay={1.1}>
         <Box
           display='flex'
           alignItems='center'
@@ -37,21 +37,40 @@ const NavBar = () => {
             h={'40px'}
             objectFit='contain'
           />
-
-          {/* Name */}
-          <Text {...headingTextStyles} as='span' hideBelow={'md'}>
-            AGUSTIN ASAAD
-          </Text>
+          <Box as={'div'} hideBelow={'md'}>
+            {/* Name */}
+            <Text {...headingTextStyles} as='span' fontSize={'18px'}>
+              AGUSTIN ASAAD
+            </Text>
+            <Text
+              {...paragraphTextStyles}
+              as='span'
+              fontSize={'13px'}
+              display={'flex'}
+              alignItems={'center'}
+              gap={'5px'}
+              fontWeight={500}
+            >
+              <Box
+                as={'div'}
+                w={'10px'}
+                h={'10px'}
+                rounded={'full'}
+                bg={'#10b981'}
+              ></Box>
+              DISPONIBLE
+            </Text>
+          </Box>
         </Box>
       </MotionFadeDown>
 
       {/* ------------------ CENTER ICON (TOGGLE BUTTON) ------------------ */}
-      <MotionFadeDown order={{ base: '3', md: '2' }}>
+      <MotionFadeDown delay={1.1} order={{ base: '3', md: '2' }}>
         <NavBarDrawer />
       </MotionFadeDown>
 
       {/* ------------------ RIGHT BUTTON: CONTACT ------------------ */}
-      <MotionFadeDown order={{ base: '2', md: '3' }}>
+      <MotionFadeDown delay={1.1} order={{ base: '2', md: '3' }}>
         <Box
           minW={{ base: 'auto', md: '210px' }}
           display={'flex'}
@@ -60,7 +79,6 @@ const NavBar = () => {
           gap={'20px'}
         >
           <CustomButton label='CONTACTAME' />
-
           <Box as='button' onClick={toggleColorMode}>
             {colorMode === 'light' ? (
               <TbSunFilled size={35} color='white' />

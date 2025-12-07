@@ -18,7 +18,7 @@ const HomePage = () => {
         alignItems={'flex-start'}
         gap={{ base: '5px', md: '0px' }}
       >
-        <SlideUpItem delay={0.2}>
+        <SlideUpItem delay={1.1}>
           <Text
             as={'h1'}
             fontStyle={'normal'}
@@ -32,7 +32,7 @@ const HomePage = () => {
             AGUSTIN
           </Text>
         </SlideUpItem>
-        <SlideUpItem delay={0.2}>
+        <SlideUpItem delay={1.1}>
           <Text
             as={'h2'}
             fontStyle={'normal'}
@@ -49,12 +49,12 @@ const HomePage = () => {
       </Box>
 
       <Box display={'flex'} flexDir={'column'} gap={'10px'}>
-        <SlideUpItem delay={0.2}>
+        <SlideUpItem delay={1.1}>
           <Text {...headingTextStyles} as={'h2'}>
             DESARROLLADOR FRONT-END
           </Text>
         </SlideUpItem>
-        <SlideUpItem delay={0.2}>
+        <SlideUpItem delay={1.1}>
           <Text {...paragraphTextStyles} as={'p'} maxW={'601px'}>
             Desarrollador Web de Córdoba, Argentina. Me especializo en
             desarrollo Front-end, con experiencia en la creación de interfaces

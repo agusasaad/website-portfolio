@@ -3,7 +3,7 @@ import image_profile_white from '@/assets/image-profile-white.webp'
 import { MotionFadeDown } from '../reusable/motion-fade-down'
 import { CgClose } from 'react-icons/cg'
 import { CustomButton } from '../reusable/custom-button'
-import { headingTextStyles } from '@/styles/comon-style'
+import { headingTextStyles, paragraphTextStyles } from '@/styles/comon-style'
 
 const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
   return (
@@ -21,21 +21,41 @@ const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
           display='flex'
           alignItems='center'
           justifyContent='center'
-          gap='10px'
+          gap='15px'
         >
           {/* Profile Image */}
           <Image
             src={image_profile_white.src}
             alt='image_profile_white'
-            w='30px'
-            h='30px'
+            w='40px'
+            h='40px'
             objectFit='contain'
           />
 
-          {/* Name */}
-          <Text as='span' {...headingTextStyles}>
-            AGUSTIN ASAAD
-          </Text>
+          <Box as={'div'} hideBelow={'md'}>
+            {/* Name */}
+            <Text {...headingTextStyles} as='span' fontSize={'18px'}>
+              AGUSTIN ASAAD
+            </Text>
+            <Text
+              {...paragraphTextStyles}
+              as='span'
+              fontSize={'13px'}
+              display={'flex'}
+              alignItems={'center'}
+              gap={'5px'}
+              fontWeight={500}
+            >
+              <Box
+                as={'div'}
+                w={'10px'}
+                h={'10px'}
+                rounded={'full'}
+                bg={'#10b981'}
+              ></Box>
+              DISPONIBLE
+            </Text>
+          </Box>
         </Box>
       </MotionFadeDown>
 

@@ -5,11 +5,9 @@ import NavBarDrawer from './nav-bar-drawer'
 import { MotionFadeDown } from '../reusable/motion-fade-down'
 import { CustomButton } from '../reusable/custom-button'
 import { headingTextStyles, paragraphTextStyles } from '@/styles/comon-style'
-import { useColorMode } from '../ui/color-mode'
-import { TbMoonFilled, TbSunFilled } from 'react-icons/tb'
+import ColorModeButton from '../reusable/color-mode-button'
 
 const NavBar = () => {
-  const { colorMode, toggleColorMode } = useColorMode()
   return (
     <Box
       as='nav'
@@ -69,7 +67,7 @@ const NavBar = () => {
         <NavBarDrawer />
       </MotionFadeDown>
 
-      {/* ------------------ RIGHT BUTTON: CONTACT ------------------ */}
+      {/* ------------------ RIGHT BUTTON: CONTACT AND COLOR MODE ------------------ */}
       <MotionFadeDown delay={1.1} order={{ base: '2', md: '3' }}>
         <Box
           minW={{ base: 'auto', md: '210px' }}
@@ -79,13 +77,7 @@ const NavBar = () => {
           gap={'20px'}
         >
           <CustomButton label='CONTACTAME' />
-          <Box as='button' onClick={toggleColorMode}>
-            {colorMode === 'light' ? (
-              <TbSunFilled size={35} color='white' />
-            ) : (
-              <TbMoonFilled size={35} color='white' />
-            )}
-          </Box>
+          <ColorModeButton />
         </Box>
       </MotionFadeDown>
     </Box>

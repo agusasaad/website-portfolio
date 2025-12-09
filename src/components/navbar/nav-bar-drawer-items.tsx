@@ -16,7 +16,7 @@ const NavBarDrawerItems = () => {
         <SlideUpItem key={index} delay={0.5 + index * 0.08}>
           <Link
             fontStyle={'normal'}
-            fontSize={{ base: '50px', md: '90px', lg: '110px' }}
+            fontSize={{ base: '40px', md: '90px', lg: '110px' }}
             fontWeight={600}
             textTransform={'uppercase'}
             lineHeight={'90%'}

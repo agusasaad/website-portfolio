@@ -7,6 +7,7 @@ const HomePage = () => {
     <Box
       as={'section'}
       w={'100%'}
+      minH={'calc(100vh - 106px)'}
       p={'50px 0px'}
       display={'flex'}
       flexDir={'column'}
@@ -22,11 +23,11 @@ const HomePage = () => {
           <Text
             as={'h1'}
             fontStyle={'normal'}
-            fontSize={{ base: '50px', md: '100px', lg: '200px' }}
+            fontSize={{ base: '50px', sm: '100px', md: '150px', lg: '250px' }}
             fontWeight={600}
             textTransform={'uppercase'}
             lineHeight={'80%'}
-            letterSpacing={'-1.5px'}
+            letterSpacing={'-2.5px'}
             color={'#FFFFFF'}
           >
             AGUSTIN
@@ -36,11 +37,11 @@ const HomePage = () => {
           <Text
             as={'h2'}
             fontStyle={'normal'}
-            fontSize={{ base: '50px', md: '100px', lg: '200px' }}
+            fontSize={{ base: '50px', sm: '100px', md: '150px', lg: '250px' }}
             fontWeight={600}
             textTransform={'uppercase'}
             lineHeight={'80%'}
-            letterSpacing={'-1.5px'}
+            letterSpacing={'-2.5px'}
             color={'#FFFFFF'}
           >
             .DEV<span style={{ color: '#ff462e' }}>*</span>
@@ -48,9 +49,12 @@ const HomePage = () => {
         </SlideUpItem>
       </Box>
 
-      <Box display={'flex'} justifyContent={'flex-end'}>
-        <Box maxW={'700px'} display={'flex'} flexDir={'column'} gap={'10px'}>
-          <SlideUpItem delay={1.1}>
+      <Box
+        display={'flex'}
+        justifyContent={{ base: 'flex-start', lg: 'flex-end' }}
+      >
+        <SlideUpItem delay={1.1}>
+          <Box maxW={'700px'} display={'flex'} flexDir={'column'} gap={'5px'}>
             <Text
               {...headingTextStyles}
               as={'h2'}
@@ -58,19 +62,17 @@ const HomePage = () => {
             >
               DESARROLLADOR FRONT-END
             </Text>
-          </SlideUpItem>
-          <SlideUpItem delay={1.2}>
             <Text
               {...paragraphTextStyles}
               as={'p'}
               fontSize={{ base: '18px', md: '20px' }}
             >
-              Desarrollador Web de Córdoba, Argentina. Me especializo en
-              desarrollo Front-end, con experiencia en la creación de interfaces
-              de usuario eficientes y visualmente atractivas.
+              Desarrollador Web enfocado en crear interfaces dinámicas, modernas
+              y bien animadas. Trabajo con React y Next.js para construir
+              experiencias digitales rápidas, limpias y visualmente atractivas.
             </Text>
-          </SlideUpItem>
-        </Box>
+          </Box>
+        </SlideUpItem>
       </Box>
     </Box>
   )

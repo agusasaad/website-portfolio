@@ -4,6 +4,7 @@ import { MotionFadeDown } from '../reusable/motion-fade-down'
 import { CgClose } from 'react-icons/cg'
 import { CustomButton } from '../reusable/custom-button'
 import { headingTextStyles, paragraphTextStyles } from '@/styles/comon-style'
+import ColorModeButton from '../reusable/color-mode-button'
 
 const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
   return (
@@ -83,8 +84,15 @@ const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
 
       {/* ------------------ RIGHT BUTTON: CONTACT ------------------ */}
       <MotionFadeDown delay={0.5} hideBelow={'md'}>
-        <Box minW={'210px'} display={'flex'} justifyContent={'flex-end'}>
+        <Box
+          minW={{ base: 'auto', md: '210px' }}
+          display={'flex'}
+          justifyContent={'flex-end'}
+          alignItems={'center'}
+          gap={'20px'}
+        >
           <CustomButton label='CONTACTAME' />
+          <ColorModeButton />
         </Box>
       </MotionFadeDown>
     </Box>

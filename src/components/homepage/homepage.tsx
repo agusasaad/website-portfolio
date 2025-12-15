@@ -15,7 +15,7 @@ const HomePage = () => {
         flexDir={'column'}
         alignItems={'center'}
         gap={{ base: '15px', lg: '30px' }}
-        p={'100px 0px 150px 0px'}
+        p={{ base: '100px 0px', md: '100px 0px 150px 0px' }}
       >
         <SlideUpItem delay={0.1}>
           <Text
@@ -41,7 +41,7 @@ const HomePage = () => {
             <Text
               as={'h1'}
               fontStyle={'normal'}
-              fontSize={{ base: '60px', sm: '70px', md: '100px', lg: '135px' }}
+              fontSize={{ base: '55px', sm: '70px', md: '100px', lg: '135px' }}
               fontWeight={650}
               textTransform={'uppercase'}
               lineHeight={'80%'}
@@ -57,7 +57,7 @@ const HomePage = () => {
             <Text
               as={'h2'}
               fontStyle={'normal'}
-              fontSize={{ base: '60px', sm: '70px', md: '100px', lg: '135px' }}
+              fontSize={{ base: '55px', sm: '70px', md: '100px', lg: '135px' }}
               fontWeight={650}
               textTransform={'uppercase'}
               lineHeight={'80%'}

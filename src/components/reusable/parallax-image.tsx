@@ -14,15 +14,15 @@ const ParallaxImage = ({ src }: Props) => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start end', 'end start'],
+    offset: ['start 90%', 'start 30%'],
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], [-80, 80])
-  const scale = useTransform(scrollYProgress, [0, 1], [1.08, 1])
+  // 🔥 CLAVE: entra grande → se normaliza
+  const scale = useTransform(scrollYProgress, [0, 1], [1.2, 1])
 
   return (
     <Box ref={ref} position='relative' overflow='hidden'>
-      <motion.div style={{ y, scale }}>
+      <motion.div style={{ scale, willChange: 'transform' }}>
         <Image src={src} alt='image' w='100%' h='100%' objectFit='cover' />
       </motion.div>
 

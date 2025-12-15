@@ -18,21 +18,21 @@ const ParallaxImage = ({ src }: Props) => {
   })
 
   const y = useTransform(scrollYProgress, [0, 1], [-80, 80])
-  const scale = useTransform(scrollYProgress, [0, 1], [1.08, 1])
+  const scale = useTransform(scrollYProgress, [0, 1], [1.15, 1])
 
   return (
-    <Box ref={ref} position='relative' overflow='hidden'>
-      <motion.div style={{ y, scale }}>
-        <Image
-          src={src}
-          alt='image'
-          w='100%'
-          h='100%'
-          maxH={{ base: '300px', md: '100%' }}
-        />
+    <Box
+      ref={ref}
+      position='relative'
+      overflow='hidden'
+      aspectRatio={16 / 10}
+      w='100%'
+    >
+      <motion.div style={{ y, scale }} className='parallax-inner'>
+        <Image src={src} alt='image' w='100%' h='100%' objectFit='cover' />
       </motion.div>
 
-      <Noise patternSize={600} refreshInterval={2} tileSize={90} alpha={30} />
+      <Noise patternSize={500} refreshInterval={2} tileSize={90} alpha={40} />
     </Box>
   )
 }

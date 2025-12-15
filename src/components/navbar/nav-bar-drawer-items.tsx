@@ -25,7 +25,7 @@ const NavBarDrawerItems = () => {
       flexDir='column'
       alignItems='center'
       justifyContent='center'
-      gap={{ base: '5px', md: '16px' }}
+      gap={{ base: '0px', md: '16px' }}
     >
       {navItems.map((item, index) => (
         <SlideUpItem
@@ -51,7 +51,7 @@ const NavBarDrawerItems = () => {
                 textTransform='uppercase'
                 fontWeight={650}
                 fontSize={fuzzyFontSize}
-                lineHeight={'30px'}
+                lineHeight={'40px'}
               >
                 {item.label}
               </Text>

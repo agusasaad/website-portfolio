@@ -26,19 +26,18 @@ export default function PageReveal() {
       {panels.map((_, i) => (
         <motion.div
           key={i}
-          initial={{ y: 0 }}
-          animate={{ y: '-100%' }}
+          initial={{ y: 0, opacity: 1 }}
+          animate={{ y: '-100%', opacity: 0 }} // 👈 Se agrega la opacidad
           transition={{
             duration: 1.1,
             ease: [0.85, 0, 0.15, 1],
             delay: WAIT_TIME + i * 0.1,
           }}
           onAnimationComplete={() => {
-            // Cuando termina la ÚLTIMA barra, ocultamos todo
             if (i === panels.length - 1) {
               setTimeout(() => {
                 setVisible(false)
-              }, 50) // pequeño delay para evitar flicker
+              }, 80)
             }
           }}
           style={{

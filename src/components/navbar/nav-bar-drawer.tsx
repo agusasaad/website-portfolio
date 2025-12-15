@@ -60,7 +60,7 @@ const NavBarDrawer = () => {
           <Drawer.Content
             position='relative'
             padding={{ base: '0px 24px', md: '0px 40px' }}
-            bg={'var(--background)'}
+            bg={'#000'}
           >
             {/* ---------------- HEADER ---------------- */}
             {/* X de cerrar + info de cabecera */}
@@ -82,7 +82,12 @@ const NavBarDrawer = () => {
 
             {/* ---------------- NOISE ----------------- */}
             {/* Textura de ruido sutil */}
-            <Noise />
+            <Noise
+              patternSize={600}
+              refreshInterval={2}
+              tileSize={90}
+              alpha={20}
+            />
           </Drawer.Content>
         </Drawer.Positioner>
       </Portal>

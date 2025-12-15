@@ -1,10 +1,11 @@
 import { Box, Button, Image, Text } from '@chakra-ui/react'
-import image_profile_white from '@/assets/image-profile-white.webp'
+import image_profile_orange from '@/assets/image-profile-orange.webp'
 import { MotionFadeDown } from '../reusable/motion-fade-down'
 import { CgClose } from 'react-icons/cg'
 import { CustomButton } from '../reusable/custom-button'
 import { headingTextStyles, paragraphTextStyles } from '@/styles/comon-style'
 import ColorModeButton from '../reusable/color-mode-button'
+import ReusableDateTime from '../reusable/reusable-date-time'
 
 const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
   return (
@@ -26,8 +27,8 @@ const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
         >
           {/* Profile Image */}
           <Image
-            src={image_profile_white.src}
-            alt='image_profile_white'
+            src={image_profile_orange.src}
+            alt='image_profile_orange'
             w='40px'
             h='40px'
             objectFit='contain'
@@ -41,20 +42,14 @@ const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
             <Text
               {...paragraphTextStyles}
               as='span'
-              fontSize={'13px'}
+              fontSize={'16px'}
               display={'flex'}
               alignItems={'center'}
-              gap={'5px'}
               fontWeight={500}
+              textTransform={'uppercase'}
+              letterSpacing={'0.5px'}
             >
-              <Box
-                as={'div'}
-                w={'10px'}
-                h={'10px'}
-                rounded={'full'}
-                bg={'#10b981'}
-              ></Box>
-              DISPONIBLE
+              <ReusableDateTime />
             </Text>
           </Box>
         </Box>
@@ -91,7 +86,7 @@ const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
           alignItems={'center'}
           gap={'20px'}
         >
-          <CustomButton label='CONTACTAME' />
+          <CustomButton label='CONTACT ME' />
           <ColorModeButton />
         </Box>
       </MotionFadeDown>

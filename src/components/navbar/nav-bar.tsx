@@ -1,11 +1,12 @@
 'use client'
 import { Box, Image, Text } from '@chakra-ui/react'
-import image_profile_white from '@/assets/image-profile-white.webp'
+import image_profile_orange from '@/assets/image-profile-orange.webp'
 import NavBarDrawer from './nav-bar-drawer'
 import { MotionFadeDown } from '../reusable/motion-fade-down'
 import { CustomButton } from '../reusable/custom-button'
 import { headingTextStyles, paragraphTextStyles } from '@/styles/comon-style'
 import ColorModeButton from '../reusable/color-mode-button'
+import ReusableDateTime from '../reusable/reusable-date-time'
 
 const NavBar = () => {
   return (
@@ -20,7 +21,7 @@ const NavBar = () => {
       borderBottom={'1px solid rgb(48, 48, 48)'}
     >
       {/* ------------------ LEFT SECTION: LOGO + NAME ------------------ */}
-      <MotionFadeDown delay={1.1}>
+      <MotionFadeDown delay={0.1}>
         <Box
           display='flex'
           alignItems='center'
@@ -29,13 +30,13 @@ const NavBar = () => {
         >
           {/* Profile Image */}
           <Image
-            src={image_profile_white.src}
-            alt='image_profile_white'
+            src={image_profile_orange.src}
+            alt='image_profile_orange'
             w={'40px'}
             h={'40px'}
             objectFit='contain'
           />
-          <Box as={'div'} hideBelow={'md'}>
+          <Box as={'div'}>
             {/* Name */}
             <Text {...headingTextStyles} as='span' fontSize={'18px'}>
               AGUSTIN ASAAD
@@ -43,32 +44,31 @@ const NavBar = () => {
             <Text
               {...paragraphTextStyles}
               as='span'
-              fontSize={'13px'}
+              fontSize={'16px'}
               display={'flex'}
               alignItems={'center'}
-              gap={'5px'}
               fontWeight={500}
+              textTransform={'uppercase'}
+              letterSpacing={'0.5px'}
+              lineHeight={'normal'}
             >
-              <Box
-                as={'div'}
-                w={'10px'}
-                h={'10px'}
-                rounded={'full'}
-                bg={'#10b981'}
-              ></Box>
-              DISPONIBLE
+              <ReusableDateTime />
             </Text>
           </Box>
         </Box>
       </MotionFadeDown>
 
       {/* ------------------ CENTER ICON (TOGGLE BUTTON) ------------------ */}
-      <MotionFadeDown delay={1.1} order={{ base: '3', md: '2' }}>
+      <MotionFadeDown delay={0.1} order={{ base: '3', md: '2' }}>
         <NavBarDrawer />
       </MotionFadeDown>
 
       {/* ------------------ RIGHT BUTTON: CONTACT AND COLOR MODE ------------------ */}
-      <MotionFadeDown delay={1.1} order={{ base: '2', md: '3' }}>
+      <MotionFadeDown
+        delay={0.1}
+        order={{ base: '2', md: '3' }}
+        hideBelow={'md'}
+      >
         <Box
           minW={{ base: 'auto', md: '210px' }}
           display={'flex'}
@@ -76,7 +76,7 @@ const NavBar = () => {
           alignItems={'center'}
           gap={'20px'}
         >
-          <CustomButton label='CONTACTAME' />
+          <CustomButton label='CONTACT ME' />
           <ColorModeButton />
         </Box>
       </MotionFadeDown>

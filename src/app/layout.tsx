@@ -1,7 +1,6 @@
 import { Provider } from '@/components/ui/provider'
 import localFont from 'next/font/local'
 import NavBar from '@/components/navbar/nav-bar'
-import Noise from '@/components/noise/noise'
 import { ReactLenis } from '@/utils/lenis'
 import { ColorModeProvider } from '@/components/ui/color-mode'
 import './globals.css'
@@ -48,7 +47,6 @@ export default function RootLayout({
     <html lang='es'>
       <body className={ClashDisplay.className}>
         <ReactLenis root>
-          <Noise />
           <Provider>
             <ColorModeProvider>
               <NavBar />

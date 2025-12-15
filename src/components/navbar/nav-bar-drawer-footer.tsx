@@ -1,10 +1,13 @@
-import { Box, Link, Text } from '@chakra-ui/react'
+import { Box, Link, Text, useBreakpointValue } from '@chakra-ui/react'
 import { LuArrowUpRight } from 'react-icons/lu'
 import { MotionFadeDown } from '../reusable/motion-fade-down'
 import { TiLocation } from 'react-icons/ti'
 import { headingTextStyles } from '@/styles/comon-style'
 
 const NavBarDrawerFooter = () => {
+  // Definición de flexDir para el Text que contiene la ubicación y hora
+  const locationFlexDir = useBreakpointValue({ base: 'row-reverse', sm: 'row' })
+
   return (
     <Box
       w={'100%'}
@@ -20,9 +23,10 @@ const NavBarDrawerFooter = () => {
           {...headingTextStyles}
           as='span'
           display={'flex'}
-          flexDir={{ base: 'row-reverse', sm: 'row' }}
+          // Usamos la variable responsiva definida:
+          flexDir={locationFlexDir}
           alignItems={'center'}
-          gap={'5px'}
+          gap={'10px'}
         >
           <TiLocation size={25} />
           ARGENTINA

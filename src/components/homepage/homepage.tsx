@@ -1,78 +1,75 @@
 import { Box, Text } from '@chakra-ui/react'
 import { SlideUpItem } from '../reusable/slide-up-Item'
-import { headingTextStyles, paragraphTextStyles } from '@/styles/comon-style'
 
 const HomePage = () => {
   return (
     <Box
       as={'section'}
       w={'100%'}
-      minH={'calc(100vh - 106px)'}
-      p={'50px 0px'}
       display={'flex'}
-      flexDir={'column'}
-      gap={{ base: '25px', md: '50px' }}
+      gap={{ base: '20px', md: '0px' }}
     >
       <Box
+        w={'100%'}
         display={'flex'}
         flexDir={'column'}
-        alignItems={'flex-start'}
-        gap={{ base: '10px', md: '0px' }}
+        alignItems={'center'}
+        gap={{ base: '15px', lg: '30px' }}
+        p={'100px 0px 150px 0px'}
       >
-        <SlideUpItem delay={1.1}>
+        <SlideUpItem delay={0.1}>
           <Text
-            as={'h1'}
+            as={'span'}
             fontStyle={'normal'}
-            fontSize={{ base: '50px', sm: '100px', md: '150px', lg: '250px' }}
-            fontWeight={600}
+            fontSize={{ base: '18px', md: '20px', lg: '25px' }}
+            fontWeight={500}
             textTransform={'uppercase'}
-            lineHeight={'80%'}
-            letterSpacing={'-2.5px'}
-            color={'#FFFFFF'}
+            color={'#999999'}
+            letterSpacing={'0.5px'}
+            textAlign={'center'}
           >
-            AGUSTIN
+            [ AVAILABLE FOR WORK ]
           </Text>
         </SlideUpItem>
-        <SlideUpItem delay={1.1}>
-          <Text
-            as={'h2'}
-            fontStyle={'normal'}
-            fontSize={{ base: '50px', sm: '100px', md: '150px', lg: '250px' }}
-            fontWeight={600}
-            textTransform={'uppercase'}
-            lineHeight={'80%'}
-            letterSpacing={'-2.5px'}
-            color={'#FFFFFF'}
-          >
-            .DEV<span style={{ color: '#ff462e' }}>*</span>
-          </Text>
-        </SlideUpItem>
-      </Box>
-
-      <Box
-        display={'flex'}
-        justifyContent={{ base: 'flex-start', lg: 'flex-end' }}
-      >
-        <SlideUpItem delay={1.1}>
-          <Box maxW={'700px'} display={'flex'} flexDir={'column'} gap={'5px'}>
+        <Box
+          display={'flex'}
+          flexDir={'column'}
+          alignItems={'center'}
+          gap={'15px'}
+        >
+          <SlideUpItem delay={0.2}>
             <Text
-              {...headingTextStyles}
+              as={'h1'}
+              fontStyle={'normal'}
+              fontSize={{ base: '60px', sm: '70px', md: '100px', lg: '135px' }}
+              fontWeight={650}
+              textTransform={'uppercase'}
+              lineHeight={'80%'}
+              letterSpacing={{ base: '-1.5px', lg: '-2.5px' }}
+              color={'#FFFFFF'}
+              textAlign={'center'}
+              px={'5px'}
+            >
+              FRONT END
+            </Text>
+          </SlideUpItem>
+          <SlideUpItem delay={0.3}>
+            <Text
               as={'h2'}
-              fontSize={{ base: '20px', md: '24px' }}
+              fontStyle={'normal'}
+              fontSize={{ base: '60px', sm: '70px', md: '100px', lg: '135px' }}
+              fontWeight={650}
+              textTransform={'uppercase'}
+              lineHeight={'80%'}
+              letterSpacing={{ base: '-1.5px', lg: '-2.5px' }}
+              color={'#FFFFFF'}
+              textAlign={'center'}
+              px={'5px'}
             >
-              DESARROLLADOR FRONT-END
+              DEVELOPER
             </Text>
-            <Text
-              {...paragraphTextStyles}
-              as={'p'}
-              fontSize={{ base: '18px', md: '20px' }}
-            >
-              Desarrollador Web enfocado en crear interfaces dinámicas, modernas
-              y bien animadas. Trabajo con React y Next.js para construir
-              experiencias digitales rápidas, limpias y visualmente atractivas.
-            </Text>
-          </Box>
-        </SlideUpItem>
+          </SlideUpItem>
+        </Box>
       </Box>
     </Box>
   )

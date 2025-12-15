@@ -13,9 +13,6 @@ const Projects = () => {
       {image_projects.map((image, idx) => (
         <ParallaxImage key={idx} src={image.src} />
       ))}
-      {image_projects.map((image, idx) => (
-        <ParallaxImage key={idx} src={image.src} />
-      ))}
     </Box>
   )
 }

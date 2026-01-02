@@ -30,7 +30,7 @@ const NavBarDrawerItems = () => {
             textTransform='uppercase'
             fontWeight={650}
             fontSize={fuzzyFontSize}
-            lineHeight={'100px'}
+            lineHeight={{ base: '45px', md: '100px' }}
           >
             {item.label}
           </Link>

@@ -12,7 +12,7 @@ const NavBar = () => {
     <Box
       as='nav'
       w='100%'
-      p='30px 0'
+      p={{ base: '20px 0px', md: '30px 0' }}
       display='flex'
       alignItems='center'
       justifyContent='space-between'

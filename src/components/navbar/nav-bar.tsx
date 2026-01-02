@@ -1,6 +1,5 @@
 'use client'
-import { Box, Image, Text } from '@chakra-ui/react'
-import image_profile_orange from '@/assets/image-profile-orange.webp'
+import { Box, Text } from '@chakra-ui/react'
 import NavBarDrawer from './nav-bar-drawer'
 import { MotionFadeDown } from '../reusable/motion-fade-down'
 import { CustomButton } from '../reusable/custom-button'
@@ -21,51 +20,36 @@ const NavBar = () => {
       borderBottom={'1px solid rgb(48, 48, 48)'}
     >
       {/* ------------------ LEFT SECTION: LOGO + NAME ------------------ */}
-      <MotionFadeDown delay={0.1}>
-        <Box
-          display='flex'
-          alignItems='center'
-          justifyContent='center'
-          gap='15px'
-        >
-          {/* Profile Image */}
-          <Image
-            src={image_profile_orange.src}
-            alt='image_profile_orange'
-            w={'40px'}
-            h={'40px'}
-            objectFit='contain'
-          />
-          <Box as={'div'}>
-            {/* Name */}
-            <Text {...headingTextStyles} as='span' fontSize={'18px'}>
-              AGUSTIN ASAAD
-            </Text>
-            <Text
-              {...paragraphTextStyles}
-              as='span'
-              fontSize={'16px'}
-              display={'flex'}
-              alignItems={'center'}
-              fontWeight={500}
-              textTransform={'uppercase'}
-              letterSpacing={'0.5px'}
-              lineHeight={'normal'}
-            >
-              <ReusableDateTime />
-            </Text>
-          </Box>
+      <MotionFadeDown delay={1.3}>
+        <Box as={'div'} minW={{ base: 'auto', md: '210px' }}>
+          {/* Name */}
+          <Text {...headingTextStyles} as='span' fontSize={'18px'}>
+            AGUSTIN ASAAD
+          </Text>
+          <Text
+            {...paragraphTextStyles}
+            as='span'
+            fontSize={'16px'}
+            display={'flex'}
+            alignItems={'center'}
+            fontWeight={500}
+            textTransform={'uppercase'}
+            letterSpacing={'0.5px'}
+            lineHeight={'normal'}
+          >
+            <ReusableDateTime />
+          </Text>
         </Box>
       </MotionFadeDown>
 
       {/* ------------------ CENTER ICON (TOGGLE BUTTON) ------------------ */}
-      <MotionFadeDown delay={0.1} order={{ base: '3', md: '2' }}>
+      <MotionFadeDown delay={1.3} order={{ base: '3', md: '2' }}>
         <NavBarDrawer />
       </MotionFadeDown>
 
       {/* ------------------ RIGHT BUTTON: CONTACT AND COLOR MODE ------------------ */}
       <MotionFadeDown
-        delay={0.1}
+        delay={1.3}
         order={{ base: '2', md: '3' }}
         hideBelow={'md'}
       >

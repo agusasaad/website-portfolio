@@ -1,5 +1,4 @@
-import { Box, Button, Image, Text } from '@chakra-ui/react'
-import image_profile_orange from '@/assets/image-profile-orange.webp'
+import { Box, Button, Text } from '@chakra-ui/react'
 import { MotionFadeDown } from '../reusable/motion-fade-down'
 import { CgClose } from 'react-icons/cg'
 import { CustomButton } from '../reusable/custom-button'
@@ -19,39 +18,23 @@ const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
     >
       {/* ------------------ LEFT SECTION: LOGO + NAME ------------------ */}
       <MotionFadeDown delay={0.5} hideBelow={'md'}>
-        <Box
-          display='flex'
-          alignItems='center'
-          justifyContent='center'
-          gap='15px'
-        >
-          {/* Profile Image */}
-          <Image
-            src={image_profile_orange.src}
-            alt='image_profile_orange'
-            w='40px'
-            h='40px'
-            objectFit='contain'
-          />
-
-          <Box as={'div'} hideBelow={'md'}>
-            {/* Name */}
-            <Text {...headingTextStyles} as='span' fontSize={'18px'}>
-              AGUSTIN ASAAD
-            </Text>
-            <Text
-              {...paragraphTextStyles}
-              as='span'
-              fontSize={'16px'}
-              display={'flex'}
-              alignItems={'center'}
-              fontWeight={500}
-              textTransform={'uppercase'}
-              letterSpacing={'0.5px'}
-            >
-              <ReusableDateTime />
-            </Text>
-          </Box>
+        <Box as={'div'} hideBelow={'md'} minW={{ base: 'auto', md: '210px' }}>
+          {/* Name */}
+          <Text {...headingTextStyles} as='span' fontSize={'18px'}>
+            AGUSTIN ASAAD
+          </Text>
+          <Text
+            {...paragraphTextStyles}
+            as='span'
+            fontSize={'16px'}
+            display={'flex'}
+            alignItems={'center'}
+            fontWeight={500}
+            textTransform={'uppercase'}
+            letterSpacing={'0.5px'}
+          >
+            <ReusableDateTime />
+          </Text>
         </Box>
       </MotionFadeDown>
 

@@ -26,8 +26,8 @@ export default function PageReveal() {
       {panels.map((_, i) => (
         <motion.div
           key={i}
-          initial={{ y: 0, opacity: 1 }}
-          animate={{ y: '-100%', opacity: 0 }} // 👈 Se agrega la opacidad
+          initial={{ y: 0 }}
+          animate={{ y: '-100%' }} // 👈 Se agrega la opacidad
           transition={{
             duration: 1.1,
             ease: [0.85, 0, 0.15, 1],

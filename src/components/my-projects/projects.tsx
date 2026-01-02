@@ -6,14 +6,11 @@ const Projects = () => {
   return (
     <Box
       w='100%'
+      h={'100vh'}
       display='grid'
       gridTemplateColumns={{ base: '1fr', lg: '1fr 1fr' }}
       gap='20px'
     >
-      {image_projects.map((image, idx) => (
-        <ParallaxImage key={idx} src={image.src} />
-      ))}
-
       {image_projects.map((image, idx) => (
         <ParallaxImage key={idx} src={image.src} />
       ))}

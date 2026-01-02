@@ -4,7 +4,6 @@ import { Box, Drawer, Portal, useDisclosure } from '@chakra-ui/react'
 import NavBarDrawerHeader from './nav-bar-drawer-header'
 import NavBarDrawerItems from './nav-bar-drawer-items'
 import NavBarDrawerFooter from './nav-bar-drawer-footer'
-import Noise from '../noise/noise'
 
 const NavBarDrawer = () => {
   const { open, onOpen, onClose, setOpen } = useDisclosure()
@@ -79,15 +78,6 @@ const NavBarDrawer = () => {
             <Drawer.Footer>
               <NavBarDrawerFooter />
             </Drawer.Footer>
-
-            {/* ---------------- NOISE ----------------- */}
-            {/* Textura de ruido sutil */}
-            <Noise
-              patternSize={600}
-              refreshInterval={2}
-              tileSize={90}
-              alpha={20}
-            />
           </Drawer.Content>
         </Drawer.Positioner>
       </Portal>

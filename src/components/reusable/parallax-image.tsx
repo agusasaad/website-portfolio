@@ -3,7 +3,6 @@
 import { Box, Image } from '@chakra-ui/react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import Noise from '../noise/noise'
 
 type Props = {
   src: string
@@ -18,7 +17,7 @@ const ParallaxImage = ({ src }: Props) => {
   })
 
   const y = useTransform(scrollYProgress, [0, 1], [-80, 80])
-  const scale = useTransform(scrollYProgress, [0, 1], [1.15, 1])
+  const scale = useTransform(scrollYProgress, [0, 1], [1.3, 1])
 
   return (
     <Box
@@ -31,8 +30,6 @@ const ParallaxImage = ({ src }: Props) => {
       <motion.div style={{ y, scale }} className='parallax-inner'>
         <Image src={src} alt='image' w='100%' h='100%' objectFit='cover' />
       </motion.div>
-
-      <Noise patternSize={500} refreshInterval={2} tileSize={90} alpha={40} />
     </Box>
   )
 }

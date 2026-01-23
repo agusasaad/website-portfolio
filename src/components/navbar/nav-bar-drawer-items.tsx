@@ -1,6 +1,7 @@
 import { navItems } from '@/data/placeholder-data'
-import { Box, Link, useBreakpointValue } from '@chakra-ui/react'
+import { Box, useBreakpointValue } from '@chakra-ui/react'
 import { SlideUpItem } from '../reusable/slide-up-Item'
+import { SplitHoverText } from '../reusable/split-text-link'
 
 const NavBarDrawerItems = () => {
   const fuzzyFontSize = useBreakpointValue({
@@ -17,6 +18,7 @@ const NavBarDrawerItems = () => {
       flexDir='column'
       alignItems='center'
       justifyContent='center'
+      gap={'5px'}
     >
       {navItems.map((item, index) => (
         <SlideUpItem
@@ -26,14 +28,14 @@ const NavBarDrawerItems = () => {
           display='flex'
           justifyContent='center'
         >
-          <Link
+          <SplitHoverText
+            href='/'
+            text={item.label}
+            fontSize={fuzzyFontSize}
+            lineHeight={{ base: '45px', md: '90px' }}
             textTransform='uppercase'
             fontWeight={650}
-            fontSize={fuzzyFontSize}
-            lineHeight={{ base: '45px', md: '100px' }}
-          >
-            {item.label}
-          </Link>
+          />
         </SlideUpItem>
       ))}
     </Box>

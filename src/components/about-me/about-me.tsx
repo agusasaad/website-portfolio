@@ -1,13 +1,12 @@
 import { Box } from '@chakra-ui/react'
-import React from 'react'
 import HeaderSection from '../reusable/header-section'
 
-const Services = () => {
+const AboutMe = () => {
   return (
     <Box w={'100%'} minH={'100vh'} p={'50px 0px'}>
-      <HeaderSection label='SERVICES' number='01' />
+      <HeaderSection label='ABOUT ME' number='03' />
     </Box>
   )
 }
 
-export default Services
+export default AboutMe

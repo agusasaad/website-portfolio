@@ -4,7 +4,7 @@ import image_2 from '@/assets/projects/2.webp'
 export const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'Works', href: '/works' },
   { label: 'About Me', href: '/about-me' },
   { label: 'Contact', href: '/contact' },
 ]

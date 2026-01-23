@@ -1,19 +1,10 @@
-import { image_projects } from '@/data/placeholder-data'
 import { Box } from '@chakra-ui/react'
-import ParallaxImage from '../reusable/parallax-image'
+import HeaderSection from '../reusable/header-section'
 
 const Projects = () => {
   return (
-    <Box
-      w='100%'
-      h={'100vh'}
-      display='grid'
-      gridTemplateColumns={{ base: '1fr', lg: '1fr 1fr' }}
-      gap='20px'
-    >
-      {image_projects.map((image, idx) => (
-        <ParallaxImage key={idx} src={image.src} />
-      ))}
+    <Box w={'100%'} minH={'100vh'} p={'50px 0px'}>
+      <HeaderSection label='WORKS' number='02' />
     </Box>
   )
 }

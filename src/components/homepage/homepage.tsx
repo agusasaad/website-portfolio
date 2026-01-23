@@ -4,7 +4,6 @@ import { Box, Image, Text } from '@chakra-ui/react'
 import { SlideUpItem } from '../reusable/slide-up-Item'
 import image_profile from '@/assets/image-profile-orange.webp'
 import { LuArrowUpRight } from 'react-icons/lu'
-import Noise from '../noise/noise'
 
 const HomePage = () => {
   return (
@@ -78,8 +77,6 @@ const HomePage = () => {
           w={{ base: '130px', md: '160px', lg: '200px' }}
           h={{ base: '130px', md: '160px', lg: '200px' }}
         >
-          <Noise refreshInterval={2} />
-
           <Image
             src={image_profile.src}
             alt='Foto de perfil de Agustín Asaad'
@@ -120,7 +117,7 @@ const HomePage = () => {
             maxW='600px'
             letterSpacing={'0.2px'}
           >
-            Hello, I&apos;m a Front-end Web Developer specializing in clean and
+            Hello, I&apos;m a Front-end Developer specializing in clean and
             efficient interfaces — based in Córdoba, Argentina, working
             remotely. Let&apos;s create!
           </Text>

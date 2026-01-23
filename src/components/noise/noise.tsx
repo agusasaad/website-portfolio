@@ -81,6 +81,7 @@ const Noise: FC<NoiseProps> = ({
       style={{
         pointerEvents: 'none',
         imageRendering: 'pixelated',
+        zIndex: 1,
       }}
     />
   )

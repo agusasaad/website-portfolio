@@ -59,7 +59,7 @@ const NavBarDrawer = () => {
           <Drawer.Content
             position='relative'
             padding={{ base: '0px 24px', md: '0px 40px' }}
-            bg={'#000'}
+            bg={'#0e0e0e'}
           >
             {/* ---------------- HEADER ---------------- */}
             {/* X de cerrar + info de cabecera */}

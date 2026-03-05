@@ -6,7 +6,6 @@ import { motion } from 'framer-motion'
 import image_profile from '@/assets/image-profile.png'
 import { SlideUpItem } from '../reusable/slide-up-Item'
 
-const MotionBox = motion(Box)
 const MotionVStack = motion(VStack)
 
 const easing: [number, number, number, number] = [0.22, 1, 0.36, 1]
@@ -19,12 +18,6 @@ const fadeUp = {
     transition: { duration: 0.8, ease: easing, delay },
   }),
 }
-
-const stats = [
-  { number: '+3', label: 'Years of Experience' },
-  { number: '+15', label: 'Projects Completed' },
-  { number: '+8', label: 'Happy Clients' },
-]
 
 const HomePage = () => {
   const duplicatedTech = [...technologies, ...technologies, ...technologies]
@@ -179,50 +172,6 @@ const HomePage = () => {
             </Text>
           </HStack>
         </MotionVStack>
-
-        {/* Right: Stats */}
-        <MotionBox
-          display='flex'
-          flexDir='column'
-          gap={0}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, margin: '-60px' }}
-          custom={0.25}
-          variants={fadeUp}
-        >
-          {stats.map((stat, i) => (
-            <HStack
-              key={stat.label}
-              w='100%'
-              justify='space-between'
-              align='baseline'
-              py={{ base: '20px', md: '24px' }}
-              borderBottom='1px solid'
-              borderTop={i === 0 ? '1px solid' : 'none'}
-              borderColor='rgba(255,255,255,0.07)'
-            >
-              <Text
-                fontSize={{ base: '40px', md: '56px' }}
-                fontWeight={700}
-                lineHeight='100%'
-                color='var(--orange)'
-                letterSpacing='-2px'
-              >
-                {stat.number}
-              </Text>
-              <Text
-                fontSize={{ base: '13px', md: '14px' }}
-                fontWeight={450}
-                opacity={0.4}
-                textTransform='uppercase'
-                letterSpacing='1px'
-              >
-                {stat.label}
-              </Text>
-            </HStack>
-          ))}
-        </MotionBox>
       </Box>
     </VStack>
   )

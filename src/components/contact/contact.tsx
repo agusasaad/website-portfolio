@@ -1,7 +1,6 @@
 'use client'
 
 import { Box, HStack, Text, VStack } from '@chakra-ui/react'
-import SectionLabel from '../reusable/section-label'
 import { motion } from 'framer-motion'
 import { LuArrowUpRight } from 'react-icons/lu'
 
@@ -33,8 +32,6 @@ const Contact = () => {
       py={{ base: '50px', md: '80px' }}
       gap={{ base: '32px', md: '48px' }}
     >
-      {/* <SectionLabel number='04' label='Contact' /> */}
-
       <VStack w='100%' gap={{ base: '40px', md: '56px' }} align='center'>
         {/* Big CTA — editorial style */}
         <VStack gap={0} align='center' textAlign='center'>

@@ -4,10 +4,6 @@ import driversCard from '@/assets/Drivers/DriverCard.webp'
 
 import mawidaCard from '@/assets/PosadaMawida/mawidaCard.webp'
 import mawidaBanner from '@/assets/PosadaMawida/headerModalPosada.webp'
-import weDevelopCard from '@/assets/WeDevelop/CardWeDevelop.webp'
-import weDevelopBanner from '@/assets/WeDevelop/headerModalWeDevelop.webp'
-import symbionetCard from '@/assets/SymbioNet/Symbionet.webp'
-import symbionetBanner from '@/assets/SymbioNet/first_banner.webp'
 import portfolioCard from '@/assets/Portfolio/cardPortfolio.webp'
 
 export const navItems = [
@@ -29,14 +25,14 @@ export const services = [
     id: '02',
     title: 'API & Backend Integration',
     description: 'Connecting frontends to REST APIs and backend services.',
-    img: weDevelopBanner.src,
+    img: driversCard.src,
   },
   {
     id: '03',
     title: 'UI / UX & Animations',
     description:
       'Designing clean interfaces with smooth, interactive experiences.',
-    img: symbionetBanner.src,
+    img: mawidaBanner.src,
   },
   {
     id: '04',
@@ -79,26 +75,6 @@ export const projects = [
   },
   {
     id: '04',
-    title: 'WeDevelop',
-    category: 'Corporate',
-    year: '2024',
-    description:
-      'Software agency site showcasing services and case studies.',
-    img: weDevelopCard.src,
-    tags: ['React', 'Chakra UI', 'GSAP'],
-  },
-  {
-    id: '05',
-    title: 'SymbioNet',
-    category: 'Web App',
-    year: '2024',
-    description:
-      'Networking platform with interactive dashboards and data visualization.',
-    img: symbionetCard.src,
-    tags: ['Next.js', 'TypeScript', 'Zustand'],
-  },
-  {
-    id: '06',
     title: 'Portfolio v1',
     category: 'Portfolio',
     year: '2023',

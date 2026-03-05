@@ -1,27 +1,18 @@
 'use client'
 
 import { services } from '@/data/placeholder-data'
-import { Box, HStack, Text, VStack, Image } from '@chakra-ui/react'
+import { Box, HStack, Text, VStack } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { LuArrowUpRight } from 'react-icons/lu'
 import SectionLabel from '../reusable/section-label'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
-import { useRef, useState } from 'react'
 
 const MotionBox = motion(Box)
-const MotionHStack = motion(HStack)
 const MotionText = motion(Text)
 
 const easing: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-}
-
-const rowVariants = {
+const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
@@ -30,112 +21,116 @@ const rowVariants = {
   },
 }
 
-const ServiceRow = ({
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
+  },
+}
+
+const ServiceCard = ({
   service,
 }: {
-  service: { id: string; title: string; description: string; img: string }
+  service: { id: string; title: string; description: string }
 }) => {
-  const rowRef = useRef<HTMLDivElement>(null)
   const [hovered, setHovered] = useState(false)
 
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-  const springX = useSpring(mouseX, { stiffness: 150, damping: 25 })
-  const springY = useSpring(mouseY, { stiffness: 150, damping: 25 })
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!rowRef.current) return
-    const rect = rowRef.current.getBoundingClientRect()
-    mouseX.set(e.clientX - rect.left - 160)
-    mouseY.set(e.clientY - rect.top - 100)
-  }
-
   return (
-    <MotionHStack
-      ref={rowRef}
+    <MotionBox
+      variants={fadeUp}
       w='100%'
-      py={{ base: '24px', md: '32px' }}
-      align={{ base: 'flex-start', md: 'center' }}
-      justify='space-between'
-      borderBottom='1px solid'
-      borderColor='rgba(255,255,255,0.07)'
+      p={{ base: '24px', md: '32px', lg: '40px' }}
+      border='1px solid'
+      borderColor={
+        hovered ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.07)'
+      }
+      borderRadius='8px'
+      cursor='default'
       position='relative'
       overflow='hidden'
-      cursor='default'
-      variants={rowVariants}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onMouseMove={handleMouseMove}
-      flexDir={{ base: 'column', md: 'row' }}
-      gap={{ base: '10px', md: '40px' }}
+      display='flex'
+      flexDir='column'
+      justifyContent='space-between'
+      minH={{ base: '200px', md: '240px' }}
+      bg={hovered ? 'rgba(255,255,255,0.02)' : 'transparent'}
     >
-      {/* Floating image */}
-      <MotionBox
-        position='absolute'
-        w='280px'
-        h='180px'
-        borderRadius='8px'
-        overflow='hidden'
-        pointerEvents='none'
-        zIndex={10}
-        style={{ x: springX, y: springY }}
-        initial={{ opacity: 0, scale: 0.85 }}
-        animate={{
-          opacity: hovered ? 1 : 0,
-          scale: hovered ? 1 : 0.85,
-        }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
-        display={{ base: 'none', lg: 'block' }}
+      {/* Top: number + arrow */}
+      <HStack
+        w='100%'
+        justify='space-between'
+        align='center'
+        mb={{ base: '32px', md: '48px' }}
       >
-        <Image
-          src={service.img}
-          alt={service.title}
-          w='100%'
-          h='100%'
-          objectFit='cover'
-        />
-      </MotionBox>
-
-      {/* Left: number + title */}
-      <HStack gap={{ base: '14px', md: '20px' }} align='center'>
         <Text
-          fontSize='13px'
-          fontWeight={500}
-          color='var(--orange)'
+          fontSize={{ base: '48px', md: '64px', lg: '72px' }}
+          fontWeight={700}
+          lineHeight='100%'
+          letterSpacing='-3px'
           fontFamily='monospace'
-          opacity={hovered ? 1 : 0.4}
-          transition='opacity 0.3s'
+          opacity={hovered ? 0.15 : 0.06}
+          transition='opacity 0.4s'
         >
           {service.id}
         </Text>
 
+        <MotionBox
+          w='36px'
+          h='36px'
+          borderRadius='full'
+          border='1px solid'
+          borderColor='rgba(255,255,255,0.15)'
+          display='flex'
+          alignItems='center'
+          justifyContent='center'
+          animate={{
+            rotate: hovered ? 0 : -45,
+            borderColor: hovered ? 'var(--orange)' : 'rgba(255,255,255,0.15)',
+            color: hovered ? 'var(--orange)' : 'rgba(255,255,255,0.4)',
+          }}
+          transition={{ duration: 0.35, ease: easing }}
+        >
+          <LuArrowUpRight size={16} />
+        </MotionBox>
+      </HStack>
+
+      {/* Bottom: title + description */}
+      <VStack align='flex-start' gap={{ base: '8px', md: '12px' }}>
         <MotionText
-          fontSize={{ base: '24px', sm: '30px', md: '38px', lg: '44px' }}
+          fontSize={{ base: '20px', md: '24px', lg: '28px' }}
           fontWeight={600}
-          lineHeight='105%'
-          letterSpacing={{ base: '-0.5px', md: '-1.5px' }}
+          letterSpacing={{ base: '-0.3px', md: '-0.8px' }}
+          lineHeight='115%'
           textTransform='uppercase'
-          whiteSpace={{ base: 'normal', md: 'nowrap' }}
-          animate={{ x: hovered ? 10 : 0 }}
+          animate={{ x: hovered ? 6 : 0 }}
           transition={{ duration: 0.35, ease: easing }}
         >
           {service.title}
         </MotionText>
-      </HStack>
 
-      {/* Right: description */}
-      <Text
-        fontSize={{ base: '13px', md: '14px' }}
-        fontWeight={400}
-        opacity={0.4}
-        maxW={{ base: '100%', md: '300px' }}
-        lineHeight='155%'
-        textAlign={{ base: 'left', md: 'right' }}
-        flexShrink={0}
-      >
-        {service.description}
-      </Text>
-    </MotionHStack>
+        <Text
+          fontSize={{ base: '13px', md: '14px' }}
+          fontWeight={400}
+          opacity={0.35}
+          lineHeight='160%'
+          maxW='320px'
+        >
+          {service.description}
+        </Text>
+      </VStack>
+
+      {/* Accent line on hover */}
+      <MotionBox
+        position='absolute'
+        bottom={0}
+        left={0}
+        h='2px'
+        bg='var(--orange)'
+        animate={{ width: hovered ? '100%' : '0%' }}
+        transition={{ duration: 0.5, ease: easing }}
+      />
+    </MotionBox>
   )
 }
 
@@ -147,19 +142,19 @@ const Services = () => {
       py={{ base: '50px', md: '80px' }}
       gap={{ base: '32px', md: '48px' }}
     >
-      {/* <SectionLabel number='02' label='Services' /> */}
-
+      <SectionLabel label='/ SERVICES' number='02' />
       <MotionBox
         w='100%'
-        display='flex'
-        flexDir='column'
+        display='grid'
+        gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
+        gap={{ base: '16px', md: '20px' }}
         variants={containerVariants}
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true, margin: '-60px' }}
       >
         {services.map((service) => (
-          <ServiceRow key={service.id} service={service} />
+          <ServiceCard key={service.id} service={service} />
         ))}
       </MotionBox>
     </VStack>

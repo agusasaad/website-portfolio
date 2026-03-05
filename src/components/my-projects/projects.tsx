@@ -2,10 +2,10 @@
 
 import { projects } from '@/data/placeholder-data'
 import { Box, HStack, Text, VStack, Image } from '@chakra-ui/react'
-import SectionLabel from '../reusable/section-label'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { LuArrowUpRight } from 'react-icons/lu'
+import SectionLabel from '../reusable/section-label'
 
 const MotionBox = motion(Box)
 const MotionText = motion(Text)
@@ -23,7 +23,6 @@ const fadeUp = {
 
 const ProjectCard = ({
   project,
-  size = 'default',
 }: {
   project: {
     id: string
@@ -34,18 +33,16 @@ const ProjectCard = ({
     img: string
     tags: string[]
   }
-  size?: 'large' | 'default'
 }) => {
   const [hovered, setHovered] = useState(false)
-  const imgHeight =
-    size === 'large'
-      ? { base: '280px', sm: '360px', md: '460px', lg: '540px' }
-      : { base: '240px', sm: '300px', md: '360px', lg: '400px' }
 
   return (
     <MotionBox
       variants={fadeUp}
       w='100%'
+      h='100%'
+      display='flex'
+      flexDir='column'
       cursor='pointer'
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -53,7 +50,9 @@ const ProjectCard = ({
       {/* Image */}
       <MotionBox
         w='100%'
-        h={imgHeight}
+        flex='1'
+        minH='180px'
+        maxH={{ base: '260px', md: '340px', lg: '380px' }}
         borderRadius='8px'
         overflow='hidden'
         position='relative'
@@ -173,32 +172,20 @@ const ProjectCard = ({
 }
 
 const Works = () => {
-  const rows: { project: (typeof projects)[0]; size: 'large' | 'default' }[][] =
-    []
+  const rows: { project: (typeof projects)[0] }[][] = []
   for (let i = 0; i < projects.length; i += 2) {
-    const isEvenRow = rows.length % 2 === 0
-    const pair: { project: (typeof projects)[0]; size: 'large' | 'default' }[] =
-      []
-    if (projects[i])
-      pair.push({ project: projects[i], size: isEvenRow ? 'large' : 'default' })
-    if (projects[i + 1])
-      pair.push({
-        project: projects[i + 1],
-        size: isEvenRow ? 'default' : 'large',
-      })
+    const pair: { project: (typeof projects)[0] }[] = []
+    if (projects[i]) pair.push({ project: projects[i] })
+    if (projects[i + 1]) pair.push({ project: projects[i + 1] })
     rows.push(pair)
   }
 
-  return (
-    <VStack
-      as='section'
-      w='100%'
-      // py={{ base: '50px', md: '80px' }}
-      gap={{ base: '32px', md: '48px' }}
-    >
-      {/* <SectionLabel number='01' label='Works' /> */}
+  const isEvenRow = (idx: number) => idx % 2 === 0
 
-      <VStack w='100%' gap={{ base: '40px', md: '56px' }}>
+  return (
+    <VStack as='section' w='100%' gap={{ base: '32px', md: '48px' }}>
+      <SectionLabel label='/ WORKS' number='01' />
+      <VStack w='100%' gap={{ base: '48px', md: '72px' }}>
         {rows.map((row, rowIdx) => (
           <MotionBox
             key={rowIdx}
@@ -208,19 +195,20 @@ const Works = () => {
               base: '1fr',
               lg:
                 row.length === 2
-                  ? row[0].size === 'large'
+                  ? isEvenRow(rowIdx)
                     ? '1.4fr 1fr'
                     : '1fr 1.4fr'
                   : '1fr',
             }}
-            gap={{ base: '40px', md: '20px' }}
+            gap={{ base: '40px', md: '32px' }}
+            alignItems='stretch'
             initial='hidden'
             whileInView='visible'
             viewport={{ once: true, margin: '-60px' }}
             transition={{ staggerChildren: 0.15 }}
           >
-            {row.map(({ project, size }) => (
-              <ProjectCard key={project.id} project={project} size={size} />
+            {row.map(({ project }) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
           </MotionBox>
         ))}

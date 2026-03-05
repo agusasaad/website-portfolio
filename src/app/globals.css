@@ -1,6 +1,15 @@
 :root {
-  --background: #0e0e0e;
   --orange: #ff462e;
+}
+
+html[data-theme='dark'] {
+  --background: #0e0e0e;
+  --text: #ffffff;
+}
+
+html[data-theme='light'] {
+  --background: #ffffff;
+  --text: #0e0e0e;
 }
 
 html,
@@ -9,8 +18,8 @@ body {
 }
 
 body {
-  color: #ffffff;
   background: var(--background);
+  color: var(--text);
   padding: 0px 40px;
   position: relative;
 }

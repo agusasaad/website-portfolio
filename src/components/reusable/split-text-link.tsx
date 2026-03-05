@@ -1,88 +1,53 @@
-import { Easing, motion, type MotionStyle } from 'framer-motion'
-import { Link, type LinkProps } from '@chakra-ui/react'
+import { motion, type MotionStyle, type Easing } from 'framer-motion'
 
-const MotionLink = motion(Link)
+const MotionDiv = motion.div
 
-type SplitHoverTextProps = LinkProps & {
+type SplitHoverTextProps = {
   text: string
+  style?: MotionStyle
+  className?: string
 }
-
-/* =========================
-   Container
-========================= */
 
 const containerVariants = {
-  rest: {
-    transition: {
-      staggerChildren: 0.015,
-      staggerDirection: -1,
-    },
-  },
-  hover: {
-    transition: {
-      staggerChildren: 0.02,
-      staggerDirection: 1,
-    },
-  },
+  rest: { transition: { staggerChildren: 0.015, staggerDirection: -1 } },
+  hover: { transition: { staggerChildren: 0.02, staggerDirection: 1 } },
 }
 
-/* =========================
-   Easing (video-style)
-========================= */
-
-// Muy lento al inicio → termina seco y rápido
 const hardEaseIn: Easing = [0.7, 0, 0.84, 0]
 
 const topLetterVariants = {
-  rest: {
-    y: '0%',
-    transition: {
-      duration: 0.4,
-      ease: hardEaseIn,
-    },
-  },
-  hover: {
-    y: '-100%',
-    transition: {
-      duration: 0.4,
-      ease: hardEaseIn,
-    },
-  },
+  rest: { y: '0%', transition: { duration: 0.4, ease: hardEaseIn } },
+  hover: { y: '-100%', transition: { duration: 0.4, ease: hardEaseIn } },
 }
 
 const bottomLetterVariants = {
-  rest: {
-    y: '100%',
-    transition: {
-      duration: 0.4,
-      ease: hardEaseIn,
-    },
-  },
-  hover: {
-    y: '0%',
-    transition: {
-      duration: 0.4,
-      ease: hardEaseIn,
-    },
-  },
+  rest: { y: '100%', transition: { duration: 0.4, ease: hardEaseIn } },
+  hover: { y: '0%', transition: { duration: 0.4, ease: hardEaseIn } },
 }
 
-/* =========================
-   Component
-========================= */
-
-export const SplitHoverText = ({ text, ...linkProps }: SplitHoverTextProps) => {
+export const SplitHoverText = ({
+  text,
+  style,
+  className,
+}: SplitHoverTextProps) => {
   return (
-    <MotionLink
+    <MotionDiv
       variants={containerVariants}
       initial='rest'
       animate='rest'
       whileHover='hover'
-      display='inline-flex'
-      whiteSpace='nowrap'
-      cursor='pointer'
-      gap='0px'
-      {...linkProps}
+      style={{
+        display: 'inline-flex',
+        whiteSpace: 'nowrap',
+        cursor: 'pointer',
+        gap: 0,
+        fontSize: style?.fontSize,
+        lineHeight: style?.lineHeight,
+        fontWeight: style?.fontWeight,
+        textTransform: style?.textTransform,
+        ...style,
+      }}
+      className={className}
     >
       {text.split('').map((char, index) => (
         <motion.span
@@ -101,7 +66,6 @@ export const SplitHoverText = ({ text, ...linkProps }: SplitHoverTextProps) => {
           >
             {char === ' ' ? '\u00A0' : char}
           </motion.span>
-
           <motion.span
             variants={bottomLetterVariants}
             style={{
@@ -115,6 +79,6 @@ export const SplitHoverText = ({ text, ...linkProps }: SplitHoverTextProps) => {
           </motion.span>
         </motion.span>
       ))}
-    </MotionLink>
+    </MotionDiv>
   )
 }

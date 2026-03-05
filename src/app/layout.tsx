@@ -5,6 +5,7 @@ import { ReactLenis } from '@/utils/lenis'
 import { ColorModeProvider } from '@/components/ui/color-mode'
 import './globals.css'
 import PageReveal from '@/components/pageReveal/page-reveal'
+import Footer from '@/components/footer/footer'
 
 const ClashDisplay = localFont({
   src: '/fonts/ClashDisplay-Variable.ttf',

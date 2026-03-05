@@ -5,8 +5,19 @@ import { CustomButton } from '../reusable/custom-button'
 import { headingTextStyles, paragraphTextStyles } from '@/styles/comon-style'
 import ColorModeButton from '../reusable/color-mode-button'
 import ReusableDateTime from '../reusable/reusable-date-time'
+import { useColorModeValue } from '../ui/color-mode'
 
 const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
+  const closeBg = useColorModeValue('#ffffff', '#0f0f0f')
+  const closeBorder = useColorModeValue('#e5e5e5', 'rgb(36, 36, 36)')
+  const closeColor = useColorModeValue('#0e0e0e', 'grey')
+
+  const hoverBg = useColorModeValue('#0e0e0e', '#ffffff')
+  const hoverColor = useColorModeValue('#ffffff', '#0e0e0e')
+  const dataTimeText = useColorModeValue(
+    'rgb(24, 24, 24)',
+    'rgba(255, 255, 255, 0.87)'
+  )
   return (
     <Box
       as={'div'}
@@ -32,6 +43,7 @@ const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
             fontWeight={500}
             textTransform={'uppercase'}
             letterSpacing={'0.5px'}
+            color={dataTimeText}
           >
             <ReusableDateTime />
           </Text>
@@ -41,21 +53,21 @@ const NavBarDrawerHeader = ({ onClose }: { onClose: () => void }) => {
       {/* ------------------ CENTER ICON (TOGGLE BUTTON) ------------------ */}
       <Button
         size='xl'
-        bg='#0f0f0f'
-        border='1px solid rgb(36, 36, 36)'
-        outline='none'
+        bg={closeBg}
+        border='1px solid'
+        borderColor={closeBorder}
         rounded='full'
         transition='all 0.3s ease'
-        color='grey'
+        color={closeColor}
         _hover={{
-          bg: 'white',
-          color: 'black',
+          bg: hoverBg,
+          color: hoverColor,
           '& svg': {
-            color: 'black',
+            color: hoverColor,
             transition: 'color 0.3s ease',
           },
         }}
-        onClick={() => onClose()}
+        onClick={onClose}
       >
         <CgClose />
       </Button>

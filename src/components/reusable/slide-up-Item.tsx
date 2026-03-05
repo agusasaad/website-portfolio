@@ -16,7 +16,7 @@ export const SlideUpItem = ({
   ...props
 }: SlideUpItemProps) => {
   return (
-    <Box overflow={'hidden'} {...props}>
+    <Box overflowY={'hidden'} {...props}>
       <motion.div
         initial={{ y: 130, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

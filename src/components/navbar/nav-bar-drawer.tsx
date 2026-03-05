@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Drawer, Portal, useDisclosure } from '@chakra-ui/react'
+import { Box, Drawer, HStack, Portal, Text, useDisclosure } from '@chakra-ui/react'
 import NavBarDrawerHeader from './nav-bar-drawer-header'
 import NavBarDrawerItems from './nav-bar-drawer-items'
 import NavBarDrawerFooter from './nav-bar-drawer-footer'
@@ -20,31 +20,34 @@ const NavBarDrawer = () => {
       {/* -------------------------------------- */}
       <Drawer.Trigger asChild>
         <Box
-          w={'45px'}
-          h={'45px'}
           as='button'
           aria-label='menu'
           cursor='pointer'
           outline='none'
-          display={'flex'}
-          justifyContent={'center'}
-          alignItems={'center'}
           onClick={onOpen}
-          transition='transform 0.3s ease'
-          _hover={{ transform: 'rotate(45deg)' }}
         >
-          <svg
-            width='25'
-            height='25'
-            viewBox='0 0 25 25'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
+          <HStack
+            gap='8px'
+            align='center'
+            opacity={0.5}
+            transition='opacity 0.2s'
+            _hover={{ opacity: 1 }}
           >
-            <circle cx='2.77778' cy='2.77778' r='2.77778' fill='white' />
-            <circle cx='2.77778' cy='22.2222' r='2.77778' fill='white' />
-            <circle cx='22.2222' cy='2.77778' r='2.77778' fill='white' />
-            <circle cx='22.2222' cy='22.2222' r='2.77778' fill='white' />
-          </svg>
+            <Text
+              fontSize={{ base: '14px', md: '15px' }}
+              fontWeight={500}
+              textTransform='uppercase'
+              letterSpacing='1.5px'
+            >
+              Menu
+            </Text>
+            <Box
+              w='6px'
+              h='6px'
+              borderRadius='full'
+              bg='var(--orange)'
+            />
+          </HStack>
         </Box>
       </Drawer.Trigger>
 
@@ -59,7 +62,6 @@ const NavBarDrawer = () => {
           <Drawer.Content
             position='relative'
             padding={{ base: '0px 24px', md: '0px 40px' }}
-            bg={'#0e0e0e'}
           >
             {/* ---------------- HEADER ---------------- */}
             {/* X de cerrar + info de cabecera */}

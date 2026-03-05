@@ -2,6 +2,7 @@
 
 import { Button, ButtonProps, Box } from '@chakra-ui/react'
 import React from 'react'
+import { useColorModeValue } from '../ui/color-mode'
 
 interface CustomButtonProps extends ButtonProps {
   label: string
@@ -11,20 +12,25 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
   label,
   ...rest
 }) => {
+  const textColor = useColorModeValue('#0E0E0E', '#FFFFFF')
+  const borderColor = useColorModeValue('#0E0E0E', '#FFFFFF')
+  const hoverTextColor = useColorModeValue('#0E0E0E', '#FFFFFF')
+
   return (
     <Button
       size={{ base: 'sm', md: 'xl' }}
       minH={{ base: '40px', md: '48px' }}
-      p={{ base: '0px 20px', md: '0px 24px' }}
+      px={{ base: '20px', md: '24px' }}
       fontSize={{ base: '14px', md: '16px' }}
       fontWeight={600}
-      color='#FFFFFF'
+      color={textColor}
       bg='transparent'
-      border='1.5px solid #FFFFFF'
+      border='1.5px solid'
+      borderColor={borderColor}
       rounded='full'
       position='relative'
       overflow='hidden'
-      _hover={{ color: 'white' }}
+      _hover={{ color: hoverTextColor }}
       {...rest}
       css={{
         _before: {
@@ -34,8 +40,8 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
           bottom: 0,
           width: '100%',
           height: '100%',
-          rounded: 'full',
-          bg: 'var(--orange)',
+          borderRadius: '9999px',
+          background: 'var(--orange)',
           zIndex: 0,
           transform: 'translateY(100%)',
           transition: 'transform 0.3s ease',

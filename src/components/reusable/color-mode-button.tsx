@@ -1,15 +1,16 @@
 import { Box } from '@chakra-ui/react'
 import { TbMoonFilled, TbSunFilled } from 'react-icons/tb'
-import { useColorMode } from '../ui/color-mode'
+import { useColorMode, useColorModeValue } from '../ui/color-mode'
 
 const ColorModeButton = () => {
   const { colorMode, toggleColorMode } = useColorMode()
+  const iconColor = useColorModeValue('black', 'white')
   return (
     <Box as='button' onClick={toggleColorMode}>
       {colorMode === 'light' ? (
-        <TbSunFilled size={35} color='white' />
+        <TbMoonFilled size={35} color={iconColor} />
       ) : (
-        <TbMoonFilled size={35} color='white' />
+        <TbSunFilled size={35} color={iconColor} />
       )}
     </Box>
   )
